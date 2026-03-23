@@ -1,0 +1,29 @@
+{
+  "title": "CKS Q12 \u2013 kube-bench: CIS Benchmark Remediation",
+  "description": "Run kube-bench, identify CIS benchmark failures, and fix the kube-apiserver and file permissions.",
+  "difficulty": "intermediate",
+  "time": "15",
+  "details": {
+    "steps": [
+      {
+        "title": "Run kube-bench and inspect failures",
+        "text": "step1.md"
+      },
+      {
+        "title": "Fix API server flags and file permissions",
+        "text": "step2.md",
+        "verify": "verify2.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

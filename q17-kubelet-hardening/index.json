@@ -1,0 +1,29 @@
+{
+  "title": "CKS Q17 \u2013 Kubelet Hardening: Disable Anonymous Auth",
+  "description": "Fix the kubelet configuration to disable anonymous authentication and enable Webhook authorization.",
+  "difficulty": "intermediate",
+  "time": "15",
+  "details": {
+    "steps": [
+      {
+        "title": "SSH to node01 and inspect the kubelet config",
+        "text": "step1.md"
+      },
+      {
+        "title": "Fix the kubelet configuration",
+        "text": "step2.md",
+        "verify": "verify2.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

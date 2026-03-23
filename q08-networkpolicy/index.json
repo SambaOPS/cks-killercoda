@@ -1,0 +1,29 @@
+{
+  "title": "CKS Q08 \u2013 NetworkPolicy: Default-Deny + Selective Allow",
+  "description": "Create default-deny NetworkPolicies and allow specific cross-namespace traffic with correct AND/OR selector logic.",
+  "difficulty": "advanced",
+  "time": "20",
+  "details": {
+    "steps": [
+      {
+        "title": "Create default-deny-all in backend",
+        "text": "step1.md"
+      },
+      {
+        "title": "Allow frontend\u2192api and DNS",
+        "text": "step2.md",
+        "verify": "verify2.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

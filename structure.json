@@ -1,0 +1,72 @@
+{
+  "title": "CKS Exam Practice Labs",
+  "description": "23 killer.sh-style labs based on real CKS exam reports (2024-2025). Covers all 6 curriculum domains.",
+  "items": [
+    {
+      "path": "q01-falco-devmem"
+    },
+    {
+      "path": "q02-istio-mtls"
+    },
+    {
+      "path": "q03-ingress-tls"
+    },
+    {
+      "path": "q04-docker-hardening"
+    },
+    {
+      "path": "q07-tls-secret"
+    },
+    {
+      "path": "q08-networkpolicy"
+    },
+    {
+      "path": "q09-rbac"
+    },
+    {
+      "path": "q11-audit-logging"
+    },
+    {
+      "path": "q12-kube-bench"
+    },
+    {
+      "path": "q17-kubelet-hardening"
+    },
+    {
+      "path": "q18-container-immutability"
+    },
+    {
+      "path": "q19-sa-projected-volume"
+    },
+    {
+      "path": "q20-cluster-upgrade"
+    },
+    {
+      "path": "q21-pss-fix-deployment"
+    },
+    {
+      "path": "q22-imagepolicywebhook"
+    },
+    {
+      "path": "q15-encryption-at-rest"
+    },
+    {
+      "path": "q16-runtimeclass"
+    },
+    {
+      "path": "q13-apparmor"
+    },
+    {
+      "path": "q14-psa"
+    },
+    {
+      "path": "q10-trivy"
+    },
+    {
+      "path": "q23-cilium-mutual-auth"
+    },
+    {
+      "path": "q05-sbom-bom"
+    }
+  ]
+}

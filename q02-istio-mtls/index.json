@@ -1,0 +1,33 @@
+{
+  "title": "CKS Q02 \u2013 Istio: mTLS PeerAuthentication",
+  "description": "Enable Istio sidecar injection on a namespace and enforce strict mutual TLS with PeerAuthentication.",
+  "difficulty": "beginner",
+  "time": "10",
+  "details": {
+    "steps": [
+      {
+        "title": "Enable sidecar injection",
+        "text": "step1.md"
+      },
+      {
+        "title": "Apply strict mTLS PeerAuthentication",
+        "text": "step2.md"
+      },
+      {
+        "title": "Restart the Deployment",
+        "text": "step3.md",
+        "verify": "verify3.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

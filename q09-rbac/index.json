@@ -1,0 +1,29 @@
+{
+  "title": "CKS Q09 \u2013 RBAC: Least-Privilege ServiceAccount",
+  "description": "Create a ServiceAccount with minimal permissions, bind a Role, and verify with kubectl auth can-i.",
+  "difficulty": "intermediate",
+  "time": "15",
+  "details": {
+    "steps": [
+      {
+        "title": "Create SA, Role, and RoleBinding",
+        "text": "step1.md"
+      },
+      {
+        "title": "Update Deployment and verify permissions",
+        "text": "step2.md",
+        "verify": "verify2.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

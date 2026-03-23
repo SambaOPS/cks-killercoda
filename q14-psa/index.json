@@ -1,0 +1,29 @@
+{
+  "title": "CKS Q14 \u2013 Pod Security Admission: Enforce Standards",
+  "description": "Apply Pod Security Standard labels to a namespace, delete non-compliant pods, and verify enforcement.",
+  "difficulty": "intermediate",
+  "time": "10",
+  "details": {
+    "steps": [
+      {
+        "title": "Label the namespace and delete non-compliant pod",
+        "text": "step1.md"
+      },
+      {
+        "title": "Verify enforcement blocks new privileged pods",
+        "text": "step2.md",
+        "verify": "verify2.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

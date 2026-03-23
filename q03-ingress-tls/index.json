@@ -1,0 +1,29 @@
+{
+  "title": "CKS Q03 \u2013 Ingress TLS + HTTP\u2192HTTPS Redirect",
+  "description": "Create an Ingress with TLS termination and HTTP-to-HTTPS redirect using nginx annotations.",
+  "difficulty": "beginner",
+  "time": "10",
+  "details": {
+    "steps": [
+      {
+        "title": "Inspect existing resources",
+        "text": "step1.md"
+      },
+      {
+        "title": "Create the Ingress with TLS",
+        "text": "step2.md",
+        "verify": "verify2.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

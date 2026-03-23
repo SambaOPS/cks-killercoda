@@ -1,0 +1,33 @@
+{
+  "title": "CKS Q15 \u2013 Secrets Encryption at Rest (aescbc)",
+  "description": "Configure EncryptionConfiguration with aescbc provider, restart the API server, and re-encrypt existing secrets.",
+  "difficulty": "advanced",
+  "time": "20",
+  "details": {
+    "steps": [
+      {
+        "title": "Create the EncryptionConfiguration",
+        "text": "step1.md"
+      },
+      {
+        "title": "Configure the API server and re-encrypt",
+        "text": "step2.md"
+      },
+      {
+        "title": "Verify encryption in etcd",
+        "text": "step3.md",
+        "verify": "verify3.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

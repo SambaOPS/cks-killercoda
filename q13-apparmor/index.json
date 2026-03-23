@@ -1,0 +1,29 @@
+{
+  "title": "CKS Q13 \u2013 AppArmor: Load Profile + Enforce on Pod",
+  "description": "Load an AppArmor profile on a node and apply it to a pod using the securityContext.",
+  "difficulty": "intermediate",
+  "time": "15",
+  "details": {
+    "steps": [
+      {
+        "title": "Load the profile on node01",
+        "text": "step1.md"
+      },
+      {
+        "title": "Create the enforced pod",
+        "text": "step2.md",
+        "verify": "verify2.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

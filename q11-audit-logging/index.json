@@ -1,0 +1,33 @@
+{
+  "title": "CKS Q11 \u2013 Audit Logging: Policy + API Server Config",
+  "description": "Write an audit policy and configure the kube-apiserver to log API activity at different levels.",
+  "difficulty": "advanced",
+  "time": "20",
+  "details": {
+    "steps": [
+      {
+        "title": "Create the audit policy file",
+        "text": "step1.md"
+      },
+      {
+        "title": "Configure the kube-apiserver",
+        "text": "step2.md"
+      },
+      {
+        "title": "Verify audit logging is active",
+        "text": "step3.md",
+        "verify": "verify3.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

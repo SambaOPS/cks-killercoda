@@ -1,0 +1,33 @@
+{
+  "title": "CKS Q01 \u2013 Falco: Detect /dev/mem Access",
+  "description": "Write a custom Falco rule to detect containers accessing /dev/mem, then scale down the offending deployments.",
+  "difficulty": "intermediate",
+  "time": "15",
+  "details": {
+    "steps": [
+      {
+        "title": "Inspect the environment",
+        "text": "step1.md"
+      },
+      {
+        "title": "Write the Falco rule",
+        "text": "step2.md"
+      },
+      {
+        "title": "Scale down the offending Deployments",
+        "text": "step3.md",
+        "verify": "verify3.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "title": "CKS Q04 \u2013 Docker Daemon Hardening",
+  "description": "Harden the Docker daemon: remove user from docker group, fix socket ownership, switch from TCP to Unix socket.",
+  "difficulty": "intermediate",
+  "time": "15",
+  "details": {
+    "steps": [
+      {
+        "title": "SSH to node01 and inspect the issues",
+        "text": "step1.md"
+      },
+      {
+        "title": "Fix all three misconfigurations",
+        "text": "step2.md",
+        "verify": "verify2.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

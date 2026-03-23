@@ -1,0 +1,33 @@
+{
+  "title": "CKS Q20 \u2013 Cluster Node Upgrade (kubeadm)",
+  "description": "Safely upgrade a worker node that is one patch version behind the control plane using kubeadm.",
+  "difficulty": "intermediate",
+  "time": "20",
+  "details": {
+    "steps": [
+      {
+        "title": "Drain node01",
+        "text": "step1.md"
+      },
+      {
+        "title": "Upgrade kubeadm, kubelet, kubectl on node01",
+        "text": "step2.md"
+      },
+      {
+        "title": "Uncordon and verify",
+        "text": "step3.md",
+        "verify": "verify3.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

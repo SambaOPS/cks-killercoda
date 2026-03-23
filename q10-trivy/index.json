@@ -1,0 +1,29 @@
+{
+  "title": "CKS Q10 \u2013 Trivy: Scan Images for Critical CVEs",
+  "description": "Use Trivy to scan all running images in a namespace, identify critical vulnerabilities, and scale down affected Deployments.",
+  "difficulty": "intermediate",
+  "time": "15",
+  "details": {
+    "steps": [
+      {
+        "title": "List all images and scan them",
+        "text": "step1.md"
+      },
+      {
+        "title": "Scale down and save results",
+        "text": "step2.md",
+        "verify": "verify2.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

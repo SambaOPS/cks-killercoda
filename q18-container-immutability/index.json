@@ -1,0 +1,29 @@
+{
+  "title": "CKS Q18 \u2013 Container Immutability: SecurityContext Hardening",
+  "description": "Set readOnlyRootFilesystem, runAsUser, allowPrivilegeEscalation in a Deployment's securityContext.",
+  "difficulty": "beginner",
+  "time": "10",
+  "details": {
+    "steps": [
+      {
+        "title": "Fix the Dockerfile",
+        "text": "step1.md"
+      },
+      {
+        "title": "Fix the Deployment securityContext",
+        "text": "step2.md",
+        "verify": "verify2.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

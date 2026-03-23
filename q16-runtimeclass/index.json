@@ -1,0 +1,29 @@
+{
+  "title": "CKS Q16 \u2013 RuntimeClass: gVisor Sandboxed Container",
+  "description": "Create a RuntimeClass using the gVisor runsc handler and configure a Deployment to use it.",
+  "difficulty": "beginner",
+  "time": "10",
+  "details": {
+    "steps": [
+      {
+        "title": "Create the RuntimeClass",
+        "text": "step1.md"
+      },
+      {
+        "title": "Update the Deployment and verify",
+        "text": "step2.md",
+        "verify": "verify2.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

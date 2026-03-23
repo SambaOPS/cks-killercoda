@@ -1,0 +1,29 @@
+{
+  "title": "CKS Q19 \u2013 ServiceAccount: Disable Automount + Projected Token",
+  "description": "Disable automatic SA token mounting and add a manually projected ServiceAccount token with expiry.",
+  "difficulty": "intermediate",
+  "time": "15",
+  "details": {
+    "steps": [
+      {
+        "title": "Disable automount on the ServiceAccount",
+        "text": "step1.md"
+      },
+      {
+        "title": "Add the projected token volume",
+        "text": "step2.md",
+        "verify": "verify2.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

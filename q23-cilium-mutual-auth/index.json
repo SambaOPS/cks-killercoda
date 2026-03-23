@@ -1,0 +1,29 @@
+{
+  "title": "CKS Q23 \u2013 CiliumNetworkPolicy: Allow + Mutual Authentication",
+  "description": "Configure a CiliumNetworkPolicy allowing traffic with mutual authentication for pods, and without auth for host access.",
+  "difficulty": "advanced",
+  "time": "20",
+  "details": {
+    "steps": [
+      {
+        "title": "Understand CiliumNetworkPolicy syntax",
+        "text": "step1.md"
+      },
+      {
+        "title": "Create the CiliumNetworkPolicy",
+        "text": "step2.md",
+        "verify": "verify2.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

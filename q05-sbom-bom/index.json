@@ -1,0 +1,29 @@
+{
+  "title": "CKS Q05 \u2013 SBOM: Find Vulnerable Image + Generate SPDX Report",
+  "description": "Use bom/trivy to identify which alpine container has libcrypto3, remove it, and generate an SPDX SBOM report.",
+  "difficulty": "advanced",
+  "time": "20",
+  "details": {
+    "steps": [
+      {
+        "title": "Scan each image for libcrypto3",
+        "text": "step1.md"
+      },
+      {
+        "title": "Remove the vulnerable container and generate SBOM",
+        "text": "step2.md",
+        "verify": "verify2.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

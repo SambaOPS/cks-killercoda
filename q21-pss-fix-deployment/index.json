@@ -1,0 +1,29 @@
+{
+  "title": "CKS Q21 \u2013 PSS: Fix Deployment for Restricted Standard",
+  "description": "Fix a Deployment so its pods comply with the Kubernetes restricted Pod Security Standard.",
+  "difficulty": "intermediate",
+  "time": "15",
+  "details": {
+    "steps": [
+      {
+        "title": "Diagnose the violations",
+        "text": "step1.md"
+      },
+      {
+        "title": "Fix the Deployment",
+        "text": "step2.md",
+        "verify": "verify2.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}

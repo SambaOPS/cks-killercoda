@@ -1,0 +1,29 @@
+{
+  "title": "CKS Q22 \u2013 ImagePolicyWebhook: Deny Images When Unavailable",
+  "description": "Configure the ImagePolicyWebhook admission plugin with defaultAllow: false to deny images when the backend is unreachable.",
+  "difficulty": "advanced",
+  "time": "20",
+  "details": {
+    "steps": [
+      {
+        "title": "Inspect the provided files",
+        "text": "step1.md"
+      },
+      {
+        "title": "Configure the API server",
+        "text": "step2.md",
+        "verify": "verify2.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-2nodes"
+  }
+}
