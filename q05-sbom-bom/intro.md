@@ -16,4 +16,5 @@ Deployment `alpine-app` in namespace `sbom-test` runs 3 containers with differen
 
 **Requirement 3:** Generate an SPDX SBOM report for the remaining images at `/opt/course/sbom.spdx`.
 
-> The environment is being prepared...
+> ⏳ **Please wait 2-3 minutes** while the background script installs required tools.
+> You can check progress with: `kubectl get pods -A`

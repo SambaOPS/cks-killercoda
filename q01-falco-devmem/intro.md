@@ -19,4 +19,5 @@ Output format must be exactly:
 
 **Requirement 2:** Scale down the three offending Deployments to **0 replicas**.
 
-> The environment is being prepared...
+> ⏳ **Please wait 2-3 minutes** while the background script installs required tools.
+> You can check progress with: `kubectl get pods -A`

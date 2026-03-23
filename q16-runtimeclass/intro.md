@@ -16,4 +16,5 @@ Deployment `untrusted-app` in namespace `team-purple` must run in a sandboxed co
 
 **Requirement 3:** Verify gVisor is active via `dmesg`.
 
-> The environment is being prepared...
+> ⏳ **Please wait 2-3 minutes** while the background script installs required tools.
+> You can check progress with: `kubectl get pods -A`

@@ -1,7 +1,13 @@
 ## Step 2 – Write the Falco rule
 
-Edit the custom rules file:
+First, confirm Falco is running (try both service names):
+```bash
+systemctl is-active falco 2>/dev/null || \
+systemctl is-active falco-modern-bpf 2>/dev/null || \
+echo "Falco not running yet — wait 30s and retry"
+```
 
+Edit the custom rules file:
 ```bash
 vim /etc/falco/falco_rules.local.yaml
 ```
@@ -22,11 +28,10 @@ Add the following rule (output format must be **exact**):
 ```
 
 Restart Falco to load the rule:
-
 ```bash
-systemctl restart falco
-systemctl status falco
-journalctl -fu falco --no-pager | head -20
+systemctl restart falco 2>/dev/null || systemctl restart falco-modern-bpf 2>/dev/null
+journalctl -u falco --no-pager -n 20 2>/dev/null || \
+journalctl -u falco-modern-bpf --no-pager -n 20
 ```
 
 > **⚠ Trap:** Never edit `falco_rules.yaml`. Always use `falco_rules.local.yaml`.

@@ -1,15 +1,30 @@
 #!/bin/bash
-# Deploy pre-state for Q01: Falco lab
-kubectl create namespace production --dry-run=client -o yaml | kubectl apply -f -
+set -e
 
+echo "[Q01] Installing Falco..."
+curl -fsSL https://falco.org/repo/falcosecurity-packages.asc \
+  | gpg --dearmor -o /usr/share/keyrings/falco-archive-keyring.gpg 2>/dev/null
+echo "deb [signed-by=/usr/share/keyrings/falco-archive-keyring.gpg] \
+  https://download.falco.org/packages/deb stable main" \
+  > /etc/apt/sources.list.d/falcosecurity.list
+apt-get update -qq
+FALCO_FRONTEND=noninteractive apt-get install -y falco 2>/dev/null || \
+  apt-get install -y --no-install-recommends falco 2>/dev/null
+
+# Start Falco in modern mode (no kernel module needed)
+systemctl enable falco-modern-bpf 2>/dev/null || true
+systemctl start  falco-modern-bpf 2>/dev/null || \
+  (systemctl enable falco && systemctl start falco) 2>/dev/null || true
+
+# Create local rules file
+mkdir -p /etc/falco
+touch /etc/falco/falco_rules.local.yaml
+
+echo "[Q01] Deploying workloads in namespace production..."
+kubectl create namespace production --dry-run=client -o yaml | kubectl apply -f -
 for NAME in nvidia cpu ollama; do
-  kubectl create deployment $NAME -n production --image=nginx:1.24 --replicas=1 2>/dev/null || true
+  kubectl create deployment $NAME \
+    -n production --image=nginx:1.24 --replicas=1 2>/dev/null || true
 done
 
-# Ensure Falco is running
-systemctl enable falco 2>/dev/null || true
-systemctl start falco 2>/dev/null || true
-
-# Ensure local rules file exists
-touch /etc/falco/falco_rules.local.yaml
-echo "Setup complete"
+echo "[Q01] Setup complete"

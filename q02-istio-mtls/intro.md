@@ -16,4 +16,5 @@ Namespace `secured-app` contains Deployment `web-app`. Istio is installed.
 
 **Requirement 3:** Restart the Deployment so existing pods get the sidecar injected.
 
-> The environment is being prepared...
+> ⏳ **Please wait 2-3 minutes** while the background script installs required tools.
+> You can check progress with: `kubectl get pods -A`
