@@ -2,7 +2,6 @@
 
 **Domain:** Cluster Hardening (15%)
 **Difficulty:** Medium | **Estimated time:** 8-10 min
-**Based on:** Real CKS exam reports (2025)
 
 ---
 
@@ -12,6 +11,6 @@ Deployment `api-app` in namespace `token-test` auto-mounts a ServiceAccount toke
 
 **Requirement 1:** Disable automatic token mounting on ServiceAccount `api-sa`.
 
-**Requirement 2:** Add a projected ServiceAccount token to the Deployment at `/var/run/secrets/tokens/api-token` with 1 hour expiry (read-only).
+**Requirement 2:** Add a projected ServiceAccount token to the Deployment at `/var/run/secrets/tokens/api-token`, expiry 1 hour, read-only.
 
-> The environment is being prepared...
+> Environment is being prepared...

@@ -1,14 +1,14 @@
-## Step 1 – Key Cilium syntax differences
+## Step 1 – Key Cilium syntax vs standard NetworkPolicy
 
 | Standard NetworkPolicy | CiliumNetworkPolicy |
-|----------------------|---------------------|
+|------------------------|---------------------|
 | `podSelector` | `endpointSelector` |
-| `from.podSelector` | `fromEndpoints` |
-| `from.namespaceSelector` | Namespace label via `k8s:io.kubernetes.pod.namespace` |
+| `from.podSelector` | `fromEndpoints[].matchLabels` |
+| `namespaceSelector` | `k8s:io.kubernetes.pod.namespace` label |
 | N/A | `authentication.mode: required` |
 | N/A | `fromEntities: [host]` |
 
-Verify Cilium is running:
 ```bash
 kubectl get pods -n kube-system | grep cilium
+kubectl get crd | grep cilium
 ```

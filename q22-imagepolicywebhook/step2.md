@@ -5,25 +5,24 @@ cp /etc/kubernetes/manifests/kube-apiserver.yaml{,.bak}
 vim /etc/kubernetes/manifests/kube-apiserver.yaml
 ```
 
-**Find the `--enable-admission-plugins` flag and APPEND** `ImagePolicyWebhook`:
+**1. APPEND** `ImagePolicyWebhook` to the existing `--enable-admission-plugins` flag:
 ```yaml
 - --enable-admission-plugins=NodeRestriction,ImagePolicyWebhook
 ```
-> ⚠ Don't create a second `--enable-admission-plugins` line — **append** to the existing one.
 
-**Add the admission config flag:**
+**2. Add** the admission config flag:
 ```yaml
 - --admission-control-config-file=/etc/kubernetes/admission/admission-config.yaml
 ```
 
-**Add volumeMount:**
+**3. Add** volumeMount:
 ```yaml
     - mountPath: /etc/kubernetes/admission
       name: admission-config
       readOnly: true
 ```
 
-**Add volume:**
+**4. Add** volume:
 ```yaml
   - name: admission-config
     hostPath:
@@ -31,6 +30,6 @@ vim /etc/kubernetes/manifests/kube-apiserver.yaml
       type: DirectoryOrCreate
 ```
 
-> **⚠ Don't wait!** Move to the next task. API server restarts in ~60s.
+> ⚠️ Do NOT create a second `--enable-admission-plugins` line — append to the existing one.
 
 Click **Check** to validate.

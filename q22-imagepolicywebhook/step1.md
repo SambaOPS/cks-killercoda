@@ -1,28 +1,15 @@
-## Step 1 – Inspect the provided config files
+## Step 1 – Inspect the provided files
 
 ```bash
 ls /etc/kubernetes/admission/
 cat /etc/kubernetes/admission/admission-config.yaml
-cat /etc/kubernetes/admission/kubeconfig.yaml
 ```
 
-The `admission-config.yaml` should look like:
-```yaml
-apiVersion: apiserver.config.k8s.io/v1
-kind: AdmissionConfiguration
-plugins:
-- name: ImagePolicyWebhook
-  configuration:
-    imagePolicy:
-      kubeConfigFile: /etc/kubernetes/admission/kubeconfig.yaml
-      allowTTL: 50
-      denyTTL: 50
-      retryBackoff: 500
-      defaultAllow: false   # ← MUST be false
-```
-
-If `defaultAllow` is `true`, change it:
+**Fix `defaultAllow` first:**
 ```bash
 grep "defaultAllow" /etc/kubernetes/admission/admission-config.yaml
-# Change true → false if needed
+# If true, change to false:
+sed -i 's/defaultAllow: true/defaultAllow: false/'   /etc/kubernetes/admission/admission-config.yaml
 ```
+
+> **defaultAllow: false** = fail-closed = deny all images if backend is down.

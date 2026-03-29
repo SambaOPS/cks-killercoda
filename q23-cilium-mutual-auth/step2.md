@@ -1,7 +1,7 @@
 ## Step 2 – Apply the policy
 
 ```bash
-cat <<EOF | kubectl apply -f -
+kubectl apply -f - <<'YAML'
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
@@ -19,7 +19,7 @@ spec:
         k8s:io.kubernetes.pod.namespace: frontend-ns
     authentication:
       mode: required
-  # Rule 2: host access without mutual TLS
+  # Rule 2: host (node) without mutual auth
   - fromEntities:
     - host
     toPorts:
@@ -28,12 +28,11 @@ spec:
         protocol: TCP
     authentication:
       mode: disabled
-EOF
+YAML
 ```
 
-> **⚠ Trap:** `authentication` is a **sibling** of `fromEndpoints`, NOT nested inside it.
+> **⚠ `authentication` is a SIBLING of `fromEndpoints`** — not nested inside it.
 
-Verify:
 ```bash
 kubectl get ciliumnetworkpolicy -n mutual-auth
 ```

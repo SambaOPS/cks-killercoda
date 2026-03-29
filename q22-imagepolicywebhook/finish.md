@@ -1,16 +1,8 @@
 ## Lab Complete! 🎉
 
-### How ImagePolicyWebhook works
-```
-kubectl run pod --image=nginx:1.19
-→ API Server → ImagePolicyWebhook admission plugin
-→ HTTP POST to webhook backend: {image: "nginx:1.19"}
-→ Backend responds: {allowed: true/false}
-→ If backend DOWN + defaultAllow=false → DENIED
-→ If backend DOWN + defaultAllow=true  → ALLOWED (insecure!)
-```
+### defaultAllow: false vs true
+- `false` = fail-closed = deny when backend unreachable (secure)
+- `true` = fail-open = allow when backend unreachable (insecure)
 
-### Key tips for the exam
-- `defaultAllow: false` = deny when backend unreachable
-- APPEND to existing `--enable-admission-plugins` — don't duplicate the flag
-- Both the admission-config AND kubeconfig files need the volume mount
+### Pattern volumeMount (same as Q11 audit + Q15 encryption)
+Every file you add to the API server needs: flag + volumeMount + volume hostPath.

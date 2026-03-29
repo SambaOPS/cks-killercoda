@@ -1,4 +1,4 @@
-## Step 1 – Disable automount
+## Step 1 – Disable automount on the ServiceAccount
 
 ```bash
 kubectl patch serviceaccount api-sa -n token-test \
@@ -8,8 +8,4 @@ kubectl get sa api-sa -n token-test -o yaml | grep automount
 # → automountServiceAccountToken: false
 ```
 
-> **⚠ Trap:** There are TWO levels of automount:
-> - SA level: `automountServiceAccountToken: false`
-> - Pod level: `spec.automountServiceAccountToken: false`
->
-> The pod spec overrides the SA. Set both for defense-in-depth.
+> **⚠ Two levels:** The pod spec overrides the SA setting. Disable both for defense-in-depth.

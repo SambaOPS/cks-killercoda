@@ -2,7 +2,6 @@
 
 **Domain:** Cluster Setup (15%)
 **Difficulty:** Medium | **Estimated time:** 10-12 min
-**Based on:** Real CKS exam reports (2025)
 
 ---
 
@@ -10,11 +9,13 @@
 
 Worker node `node01` is one patch version behind the control plane.
 
-Check current versions:
+**Requirement:** Upgrade `node01` to match the control plane version.
+
 ```bash
 kubectl get nodes
 ```
 
-**Requirement:** Upgrade `node01` to match the control plane version.
+> ⚠️ In this lab environment both nodes may be on the same version.
+> Practice the full upgrade command sequence — it is identical at the real exam.
 
-> The environment is being prepared...
+> Environment is being prepared...

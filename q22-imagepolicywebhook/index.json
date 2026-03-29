@@ -1,12 +1,12 @@
 {
-  "title": "CKS Q22 \u2013 ImagePolicyWebhook: Deny Images When Unavailable",
-  "description": "Configure the ImagePolicyWebhook admission plugin with defaultAllow: false to deny images when the backend is unreachable.",
+  "title": "CKS Q22 \u2013 ImagePolicyWebhook: Deny Images When Backend Unavailable",
+  "description": "Inspect the provided config files",
   "difficulty": "advanced",
   "time": "20",
   "details": {
     "steps": [
       {
-        "title": "Inspect the provided files",
+        "title": "Inspect the provided config files",
         "text": "step1.md"
       },
       {

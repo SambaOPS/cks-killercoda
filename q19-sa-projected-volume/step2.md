@@ -10,14 +10,14 @@ Add to `spec.template.spec`:
       automountServiceAccountToken: false
 ```
 
-Add to `spec.template.spec.containers[0].volumeMounts`:
+Add to `containers[0].volumeMounts`:
 ```yaml
         - name: api-token
           mountPath: /var/run/secrets/tokens
           readOnly: true
 ```
 
-Add to `spec.template.spec.volumes`:
+Add to `spec.volumes`:
 ```yaml
       - name: api-token
         projected:
@@ -27,11 +27,9 @@ Add to `spec.template.spec.volumes`:
               expirationSeconds: 3600
 ```
 
-Apply and verify:
 ```bash
 kubectl apply -f /tmp/api-app.yaml
-kubectl rollout status deploy api-app -n token-test
-kubectl exec -n token-test deploy/api-app -- ls /var/run/secrets/tokens/
+kubectl exec deploy/api-app -n token-test -- ls /var/run/secrets/tokens/
 # → api-token ✅
 ```
 

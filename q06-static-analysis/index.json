@@ -1,16 +1,16 @@
 {
-  "title": "CKS Q21 \u2013 PSS: Fix Deployment for Restricted Standard",
-  "description": "Diagnose PSS violations",
-  "difficulty": "intermediate",
-  "time": "15",
+  "title": "CKS Q06 \u2013 Static Analysis: Dockerfile + Deployment (1 line each)",
+  "description": "Harden a Dockerfile and Deployment using static analysis \u2014 change exactly 1 line per file.",
+  "difficulty": "beginner",
+  "time": "10",
   "details": {
     "steps": [
       {
-        "title": "Diagnose PSS violations",
+        "title": "Fix the Dockerfile",
         "text": "step1.md"
       },
       {
-        "title": "Fix the Deployment",
+        "title": "Fix the Deployment and apply",
         "text": "step2.md",
         "verify": "verify2.sh"
       }

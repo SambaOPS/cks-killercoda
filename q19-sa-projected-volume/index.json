@@ -1,6 +1,6 @@
 {
   "title": "CKS Q19 \u2013 ServiceAccount: Disable Automount + Projected Token",
-  "description": "Disable automatic SA token mounting and add a manually projected ServiceAccount token with expiry.",
+  "description": "Disable automount on the ServiceAccount",
   "difficulty": "intermediate",
   "time": "15",
   "details": {

@@ -1,9 +1,9 @@
-## Step 3 – Uncordon node01
+## Step 3 – Uncordon and verify
 
 ```bash
 kubectl uncordon node01
 kubectl get nodes
-# Both nodes should show the same version and Ready status
+# Both nodes: same version + Ready ✅
 ```
 
 Click **Check** to validate.

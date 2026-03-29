@@ -33,5 +33,4 @@ users:
 - name: api-server
   user: {}
 EOF
-
-echo "Setup complete"
+echo "[Q22] Setup complete"

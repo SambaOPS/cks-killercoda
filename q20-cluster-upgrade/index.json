@@ -1,6 +1,6 @@
 {
   "title": "CKS Q20 \u2013 Cluster Node Upgrade (kubeadm)",
-  "description": "Safely upgrade a worker node that is one patch version behind the control plane using kubeadm.",
+  "description": "Drain node01",
   "difficulty": "intermediate",
   "time": "20",
   "details": {

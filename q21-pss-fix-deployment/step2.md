@@ -1,9 +1,7 @@
-## Step 2 – Apply all required securityContext fields
-
-Edit `/tmp/violating-app.yaml`:
+## Step 2 – Apply all required fields
 
 ```bash
-vim /tmp/violating-app.yaml
+vim /tmp/fix.yaml
 ```
 
 Add to `spec.template.spec` (pod level):
@@ -15,7 +13,7 @@ Add to `spec.template.spec` (pod level):
           type: RuntimeDefault
 ```
 
-Add to `spec.template.spec.containers[0].securityContext` (container level):
+Add to `spec.template.spec.containers[0].securityContext`:
 ```yaml
         securityContext:
           allowPrivilegeEscalation: false
@@ -26,15 +24,11 @@ Add to `spec.template.spec.containers[0].securityContext` (container level):
             - ALL
 ```
 
-Apply:
 ```bash
-kubectl apply -f /tmp/violating-app.yaml
+kubectl apply -f /tmp/fix.yaml
 kubectl rollout status deploy violating-app -n pss-fix
 kubectl get pods -n pss-fix
-# Pods should now be Running
+# Should be Running ✅
 ```
-
-> **⚠ The most forgotten field:** `seccompProfile.type: RuntimeDefault`
-> Without it, `restricted` enforcement blocks the pod!
 
 Click **Check** to validate.
