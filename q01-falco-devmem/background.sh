@@ -26,5 +26,16 @@ for NAME in nvidia cpu ollama; do
   kubectl create deployment $NAME \
     -n production --image=nginx:1.24 --replicas=1 2>/dev/null || true
 done
-
+kubectl run devmem-attacker -n production \
+  --image=alpine --restart=Always \
+  --overrides='{
+    "spec": {
+      "containers": [{
+        "name":"attacker",
+        "image":"alpine",
+        "command":["sh","-c","while true; do cat /dev/mem 2>/dev/null; sleep 5; done"],
+        "securityContext":{"privileged":true}
+      }]
+    }
+  }' 2>/dev/null || true
 echo "[Q01] Setup complete"
