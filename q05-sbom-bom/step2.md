@@ -25,3 +25,19 @@ grep "SPDXVersion" /opt/course/sbom.spdx
 ```
 
 Click **Check** to validate.
+
+---
+
+<details>
+<summary>💡 <b>Pourquoi ? — Raisonnement & ressources</b> (cliquer pour déplier)</summary>
+
+**Pourquoi retirer le container plutôt que patcher l'image ?**
+À l'exam, le scope est dicté par l'énoncé : ici la remédiation demandée est le retrait. En prod, l'ordre de préférence serait : bump de version (3.16 → 3.20), rebuild, re-scan, redéploiement via pipeline — jamais d'édition live. Le retrait immédiat est le geste de *containment* quand le patch n'est pas disponible tout de suite.
+
+**Pourquoi vérifier `SPDXVersion` ?** Un rapport SBOM vide ou tronqué (tag d'image mal orthographié, réseau) passe inaperçu à l'écriture du fichier. Toujours valider le contenu du livrable, pas seulement son existence — même réflexe que ton test de bout en bout sur l'audit log.
+
+📚 Ressources :
+- https://spdx.dev/learn/overview/
+- https://trivy.dev/latest/docs/target/container_image/
+
+</details>

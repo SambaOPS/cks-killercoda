@@ -24,3 +24,20 @@ systemctl restart kubelet
 exit
 exit
 ```
+
+---
+
+<details>
+<summary>💡 <b>Pourquoi ? — Raisonnement & ressources</b> (cliquer pour déplier)</summary>
+
+**Pourquoi `apt-mark hold/unhold` ?**
+Sans hold, un `apt upgrade` de routine bumperait kubeadm/kubelet vers une version non planifiée — violation potentielle du **version skew** (kubelet ne doit jamais être plus récent que l'apiserver, et au max n-3 en retard). L'upgrade K8s est un acte chirurgical versionné, jamais un effet de bord du patching OS.
+
+**Pourquoi `upgrade node` sur un worker et pas `upgrade apply` ?**
+`apply` pilote l'upgrade du control plane (etcd, apiserver, migration des addons) ; `node` met seulement à jour la config kubelet locale depuis le cluster. Confondre les deux sur un worker échoue proprement, mais coûte du temps. Ordre global : control plane d'abord, workers ensuite, un par un.
+
+📚 Ressources :
+- https://kubernetes.io/releases/version-skew-policy/
+- https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/upgrading-linux-nodes/
+
+</details>

@@ -32,3 +32,21 @@ stat -c "%a" /var/lib/kubelet/config.yaml
 > **⚠ Trap:** If `--authorization-mode` already exists with a wrong value, **change** it — don't add a second one. Two identical flags = crash.
 
 Click **Check** to validate.
+
+---
+
+<details>
+<summary>💡 <b>Pourquoi ? — Raisonnement & ressources</b> (cliquer pour déplier)</summary>
+
+**Le sens de chaque fix (pas juste le flag) :**
+- `--anonymous-auth=false` : sans ça, des requêtes non authentifiées atteignent l'API en tant que `system:anonymous` — surface d'énumération gratuite.
+- `--profiling=false` : les endpoints pprof exposent mémoire/CPU internes — fuite d'info + vecteur DoS.
+- `--authorization-mode=Node,RBAC` : `AlwaysAllow` = **aucune autorisation du tout**, le RBAC entier est ignoré. Le fix le plus critique des quatre.
+- `chmod 600` / `chown etcd:etcd` : etcd contient tous les Secrets ; la config kubelet contient ses paramètres d'auth. Lisibles par tous = compromission locale triviale.
+
+**Le trap du flag dupliqué** : deux occurrences du même flag = le apiserver crash au démarrage (ou pire selon les versions, la dernière gagne silencieusement). Toujours `grep` le flag avant d'écrire. Et le backup du manifest reste votre assurance-vie (cf. q11).
+
+📚 Ressources :
+- https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/
+
+</details>

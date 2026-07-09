@@ -38,3 +38,19 @@ kubectl get node node01
 ```
 
 Click **Check** to validate.
+
+---
+
+<details>
+<summary>💡 <b>Pourquoi ? — Raisonnement & ressources</b> (cliquer pour déplier)</summary>
+
+**Pourquoi `mode: Webhook` et pas juste couper l'anonyme ?**
+Deux contrôles distincts : l'authentification (qui es-tu) et l'autorisation (as-tu le droit). Couper l'anonyme sans changer `AlwaysAllow` laisse **tout client authentifié** (n'importe quel cert du cluster CA) faire n'importe quoi. `Webhook` délègue chaque décision à l'API server via SubjectAccessReview → le RBAC central s'applique aussi au kubelet. Défense en profondeur : les deux couches, pas une.
+
+**Pourquoi `Unauthorized` sur le curl = succès ?**
+Le test négatif encore : la preuve du hardening est le refus. Un `200` avec la liste des pods = échec. Notez le port : 10250 est l'API authentifiée ; l'ancien 10255 (read-only, sans auth) doit lui être désactivé complètement.
+
+📚 Ressources :
+- https://kubernetes.io/docs/reference/access-authn-authz/kubelet-authn-authz/#kubelet-authorization
+
+</details>

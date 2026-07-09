@@ -42,3 +42,22 @@ Add to `spec.volumes`:
 ```
 
 > **⚠ Don't wait!** Save the file and move to the next step. The API server restarts automatically in ~60s.
+
+---
+
+<details>
+<summary>💡 <b>Pourquoi ? — Raisonnement & ressources</b> (cliquer pour déplier)</summary>
+
+**Pourquoi backup le manifest AVANT ?**
+Le kube-apiserver est un **static pod** : kubelet le recrée à chaque modification du fichier. Une typo = API server down = plus de `kubectl` pour réparer. Le backup + `crictl` (qui parle au runtime, pas à l'API) sont votre seule porte de sortie. À l'exam, un apiserver cassé peut coûter la question ET du temps sur toutes les suivantes.
+
+**Pourquoi les volumeMounts sont-ils obligatoires ?**
+Le apiserver tourne dans un container : il ne voit pas `/etc/kubernetes/audit` de l'hôte sans hostPath. Oublier le mount = crash loop avec `no such file or directory`. Diagnostic : `crictl ps -a` + `crictl logs`, jamais `kubectl logs` (l'API est down !).
+
+**`type: File` vs `type: DirectoryOrCreate`** : on monte le fichier policy en `File` (fail-fast s'il manque) mais le répertoire de logs en `DirectoryOrCreate` (kubelet le crée si absent).
+
+📚 Ressources :
+- https://kubernetes.io/docs/tasks/configure-pod-container/static-pod/
+- https://kubernetes.io/docs/tasks/debug/debug-cluster/audit/#log-backend
+
+</details>

@@ -50,3 +50,21 @@ exit
 ```
 
 Click **Check** to validate.
+
+
+---
+
+<details>
+<summary>💡 <b>Pourquoi ? — Raisonnement & ressources</b> (cliquer pour déplier)</summary>
+
+**Pourquoi retirer seulement `-H tcp://` et garder `fd://` ?**
+`fd://` = socket activation systemd (le socket Unix local, légitime) ; `--containerd` = lien vers le runtime. Supprimer toute la ligne ExecStart ou ces flags = daemon qui ne démarre plus. Le principe : **chirurgie minimale** — on retire la surface d'exposition, pas la fonctionnalité. Même discipline que le trap kube-bench "change le flag, n'en ajoute pas un deuxième".
+
+**Pourquoi `daemon-reload` obligatoire ?** systemd cache les unit files en mémoire ; sans reload, `restart` relance l'ancienne config — le "fix" ne s'applique jamais et le check échoue. Failure mode silencieux classique.
+
+**Si TCP est vraiment nécessaire en prod** (CI distante) : mTLS obligatoire (`--tlsverify`) sur le port 2376 — jamais 2375 nu.
+
+📚 Ressources :
+- https://docs.docker.com/engine/security/protect-access/#use-tls-https-to-protect-the-docker-daemon-socket
+
+</details>

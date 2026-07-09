@@ -39,3 +39,19 @@ Each lab deploys the exact scenario described by candidates, with automated veri
 ## Sources
 Real exam reports from Reddit (r/devops, r/KubernetesCerts) and Medium, 2024-2025.
 Candidates scored 77–90%.
+
+## Blocs "💡 Pourquoi ?" (raisonnement dépliable)
+
+Chaque step peut contenir un bloc `<details>` cliquable qui explique **le pourquoi** derrière les commandes :
+le mécanisme sous-jacent, le failure mode si on fait autrement, le parallèle avec une prod entreprise,
+et les URLs de doc officielle à connaître pour l'exam.
+
+- Killercoda rend le HTML `<details>/<summary>` nativement → pas besoin de JS.
+- Convention : voir [`TEMPLATE-pourquoi.md`](TEMPLATE-pourquoi.md).
+- Structure d'un bloc : **Pourquoi ?** (mécanisme) → **Piège** (failure mode silencieux) → **Parallèle prod** → **📚 Ressources**.
+
+### Couverture actuelle
+
+**✅ 23/23 labs — 51/51 steps couverts.** Chaque step se termine par un bloc dépliable
+Mécanisme → Piège → Parallèle prod → 📚 Ressources.
+Convention pour les futurs labs : [`TEMPLATE-pourquoi.md`](TEMPLATE-pourquoi.md).
